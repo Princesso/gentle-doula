@@ -1,6 +1,6 @@
 # Gentle Doula
 
-Gentle Doula is a calming pregnancy companion built by [Teda.dev](https://teda.dev), the AI app builder for everyday problems. It helps you track daily notes, check mood with voice, read week-by-week guidance, invite a partner, plan shopping and nursery prep, and chat with an assistant.
+Gentle Doula is a calming pregnancy companion. It helps you track daily notes, check your mood with voice, read week-by-week guidance, invite a partner, plan shopping and nursery prep, and chat with an assistant.
 
 ## Features
 - Daily notes with mood slider and lightweight sentiment analysis
