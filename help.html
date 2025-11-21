@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gentle Doula Help</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Oswald:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/main.css">
+  <script src="https://cdn.jsdelivr.net/npm/tailwindcss-cdn@3.4.10/tailwindcss.js"></script>
+  <style type="text/tailwindcss" data-teda="tailwind-apply">
+    @layer components {
+      .btn-primary { @apply bg-[#1ea896] text-white font-medium rounded-full px-6 py-3 shadow-lg hover:shadow-xl hover:bg-[#179786] focus:outline-none focus:ring-4 focus:ring-[#87e6da]/60 transition-all duration-300 whitespace-nowrap; }
+      .btn-secondary { @apply bg-white text-[#1f2937] border border-[#e7ecef] rounded-full px-5 py-2.5 shadow-sm hover:shadow-md hover:bg-[#f6f7f8] focus:outline-none focus:ring-4 focus:ring-[#c7d2d9]/50 transition-all duration-300 whitespace-nowrap; }
+      .heading { @apply font-['Oswald'] tracking-tight; }
+      .body { @apply font-['Inter']; }
+    }
+  </style>
+</head>
+<body class="body bg-[#fbfaf8] text-[#1f2937] antialiased">
+  <header class="max-w-5xl mx-auto px-6 pt-6">
+    <a href="index.html" class="flex items-center gap-3">
+      <img src="assets/logo.svg" alt="Gentle Doula" class="w-8 h-8" />
+      <span class="heading text-xl">Gentle Doula</span>
+    </a>
+  </header>
+  <main class="max-w-5xl mx-auto px-6 py-8">
+    <h1 class="heading text-4xl">Support resources</h1>
+    <p class="mt-3 text-[#4b5563] max-w-3xl">If you feel unsafe, overwhelmed, or notice persistent sadness, please reach out to a professional. This app does not replace medical care.</p>
+
+    <section class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div class="p-5 rounded-2xl bg-white shadow-xl ring-1 ring-black/5">
+        <h2 class="heading text-2xl">Immediate help</h2>
+        <ul class="mt-3 text-[#374151] space-y-2 text-sm">
+          <li>Call your local emergency number if you are in danger.</li>
+          <li>Contact your midwife, OB, or GP for urgent concerns.</li>
+          <li>Postpartum International: postpartum.net (country-specific helplines)</li>
+        </ul>
+      </div>
+      <div class="p-5 rounded-2xl bg-white shadow-xl ring-1 ring-black/5">
+        <h2 class="heading text-2xl">Helpful steps</h2>
+        <ul class="mt-3 text-[#374151] space-y-2 text-sm">
+          <li>Share how you feel with a trusted person.</li>
+          <li>Plan small breaks, hydration, and light movement.</li>
+          <li>Use the app to log notes and track patterns to discuss with your clinician.</li>
+        </ul>
+      </div>
+    </section>
+
+    <div class="mt-8">
+      <a href="app.html" class="btn-primary">Back to app</a>
+    </div>
+  </main>
+  <footer class="max-w-5xl mx-auto px-6 pb-12 pt-6 text-sm text-[#6b7280]">
+    </footer>
+</body>
+</html>

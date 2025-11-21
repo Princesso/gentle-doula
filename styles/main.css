@@ -1,0 +1,40 @@
+:root {
+  --bg: #fbfaf8;
+  --ink: #1f2937;
+  --mint: #1ea896;
+  --mint-200: #a6f1e7;
+  --coral-200: #ffb8b1;
+  --ink-2: #4b5563;
+}
+
+html, body { height: 100%; }
+
+/* Editorial hero interactions */
+@keyframes floatSoft { 0% { transform: translateY(0); } 50% { transform: translateY(-6px); } 100% { transform: translateY(0); } }
+
+img[alt="soft pebble"] { animation: floatSoft 6s ease-in-out infinite; }
+
+/* Chat thread bubbles */
+.chat-msg { display: flex; gap: .5rem; align-items: flex-start; }
+.chat-bubble { max-width: 75%; padding: .75rem 1rem; border-radius: 1rem; box-shadow: 0 6px 20px rgba(0,0,0,.06); }
+.chat-user { background: #e8fbf7; color: #0d4f47; border: 1px solid #b8efe6; margin-left: auto; border-top-right-radius: .3rem; }
+.chat-bot { background: #ffffff; color: var(--ink); border: 1px solid #e7ecef; border-top-left-radius: .3rem; }
+
+/* Notes list responsiveness */
+.note-item { display: grid; grid-template-columns: 1fr auto; gap: .5rem; align-items: center; }
+
+/* Hide focus outlines only when using mouse */
+:focus:not(:focus-visible) { outline: none; }
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
+
+/* Ensure buttons are above overlays */
+button, a.btn-primary, a.btn-secondary { position: relative; z-index: 2; }
+
+/* Scrollbar polish */
+#chat-thread { scrollbar-width: thin; }
+#chat-thread::-webkit-scrollbar { height: 6px; width: 6px; }
+#chat-thread::-webkit-scrollbar-thumb { background: #d7e2e7; border-radius: 999px; }

@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gentle Doula App</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/main.css">
+  <script src="https://cdn.jsdelivr.net/npm/tailwindcss-cdn@3.4.10/tailwindcss.js"></script>
+  <style type="text/tailwindcss" data-teda="tailwind-apply">
+    @layer components {
+      .btn-primary { @apply bg-[#1ea896] text-white font-medium rounded-full px-5 sm:px-6 py-3 shadow-lg hover:shadow-xl hover:bg-[#179786] focus:outline-none focus:ring-4 focus:ring-[#87e6da]/60 transition-all duration-300 whitespace-nowrap z-20; }
+      .btn-secondary { @apply bg-white text-[#1f2937] border border-[#e7ecef] rounded-full px-4 sm:px-5 py-2.5 shadow-sm hover:shadow-md hover:bg-[#f6f7f8] focus:outline-none focus:ring-4 focus:ring-[#c7d2d9]/50 transition-all duration-300 whitespace-nowrap z-20; }
+      .pill { @apply inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-medium ring-1 ring-black/5 bg-white shadow-sm; }
+      .card { @apply bg-white rounded-2xl shadow-xl ring-1 ring-black/5; }
+      .muted { @apply text-[#596579]; }
+      .heading { @apply font-['Oswald'] tracking-tight; }
+      .body { @apply font-['Inter']; }
+      .input { @apply w-full rounded-xl border border-[#e4e8ec] bg-white px-4 py-3 text-[15px] focus:outline-none focus:ring-4 focus:ring-[#c7eee7] focus:border-[#1ea896] transition-all; }
+      .label { @apply text-sm text-[#4b5563] mb-1 block; }
+      .tab { @apply px-4 py-2 rounded-full text-sm font-medium cursor-pointer transition-all duration-300; }
+      .tab-active { @apply bg-[#1ea896] text-white shadow-md; }
+      .tab-inactive { @apply bg-white text-[#1f2937] border border-[#e7ecef] hover:bg-[#f6f7f8]; }
+      .badge-risk-low { @apply bg-[#e8fbf7] text-[#126d61] ring-1 ring-[#b8efe6]; }
+      .badge-risk-med { @apply bg-[#fff9e8] text-[#7a5a00] ring-1 ring-[#ffe9a6]; }
+      .badge-risk-high { @apply bg-[#ffefef] text-[#9a1d1d] ring-1 ring-[#ffc7c7]; }
+    }
+  </style>
+</head>
+<body class="body bg-[#fbfaf8] text-[#1f2937] antialiased">
+  <header class="sticky top-0 z-40 bg-[#fbfaf8]/90 backdrop-blur border-b border-[#eef2f4]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3">
+        <img src="assets/logo.svg" alt="Gentle Doula" class="w-8 h-8" />
+        <span class="heading text-xl">Gentle Doula</span>
+      </a>
+      <div class="flex items-center gap-3">
+        <button id="btn-open-settings" class="btn-secondary">Settings</button>
+        <a href="help.html" class="btn-secondary">Help</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 py-6">
+    <section class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+      <aside class="lg:col-span-3 order-2 lg:order-1">
+        <div class="card p-5">
+          <h2 class="heading text-2xl">Today</h2>
+          <div class="mt-3 text-sm muted" id="today-date"></div>
+          <div class="mt-4 space-y-3">
+            <div class="flex items-center justify-between">
+              <div class="muted">Gestational age</div>
+              <div id="ga-badge" class="pill">—</div>
+            </div>
+            <div class="flex items-center justify-between">
+              <div class="muted">Trimester</div>
+              <div id="trimester-badge" class="pill">—</div>
+            </div>
+            <div class="flex items-center justify-between">
+              <div class="muted">Risk check</div>
+              <div id="risk-badge" class="pill">Not assessed</div>
+            </div>
+          </div>
+          <div class="mt-6">
+            <button id="btn-quick-note" class="btn-primary w-full">Quick note</button>
+          </div>
+        </div>
+
+        <div class="card p-5 mt-6">
+          <h3 class="heading text-xl">Partner</h3>
+          <p class="mt-2 text-sm muted">Invite a partner or friend to your household.</p>
+          <div class="mt-3">
+            <label class="label">Household code</label>
+            <div class="flex gap-2">
+              <input id="household-code" class="input" placeholder="Auto-generated" readonly />
+              <button id="btn-copy-code" class="btn-secondary">Copy</button>
+            </div>
+            <button id="btn-share-invite" class="btn-primary w-full mt-3">Share invite</button>
+          </div>
+          <div class="mt-4 text-xs text-[#6b7280]">Sharing works best by sending an export file. Your data stays on your device unless you choose to share it.</div>
+        </div>
+
+        <div class="card p-5 mt-6">
+          <h3 class="heading text-xl">Backup</h3>
+          <div class="mt-3 grid grid-cols-2 gap-2">
+            <button id="btn-export" class="btn-secondary">Export</button>
+            <label class="btn-secondary text-center cursor-pointer" for="import-file">Import</label>
+            <input id="import-file" type="file" accept="application/json" class="hidden" />
+          </div>
+        </div>
+      </aside>
+
+      <section class="lg:col-span-9 order-1 lg:order-2">
+        <div class="card p-5">
+          <div class="flex items-center gap-2 flex-wrap">
+            <button data-view="dashboard" class="tab tab-active">Dashboard</button>
+            <button data-view="notes" class="tab tab-inactive">Notes</button>
+            <button data-view="reading" class="tab tab-inactive">Daily read</button>
+            <button data-view="weekly" class="tab tab-inactive">Weekly check-in</button>
+            <button data-view="checklist" class="tab tab-inactive">Checklist</button>
+            <button data-view="baby" id="tab-baby" class="tab tab-inactive hidden">Baby</button>
+            <button data-view="wishlist" class="tab tab-inactive">Wishlist</button>
+            <button data-view="chat" class="tab tab-inactive">Chat</button>
+          </div>
+          <div id="risk-banner" class="mt-4 hidden p-4 rounded-xl ring-1 bg-[#fff9e8] ring-[#ffe9a6]">
+            <div class="flex items-start gap-3">
+              <div class="w-3 h-3 rounded-full bg-[#ffb020] mt-1"></div>
+              <div>
+                <p class="font-medium">We noticed signs you might need extra support.</p>
+                <p class="text-sm muted mt-1">Consider a gentle check-in with your care provider or share an update with your partner.</p>
+                <div class="mt-3 flex gap-2 flex-wrap">
+                  <button id="btn-alert-partner" class="btn-primary">Notify partner</button>
+                  <a href="help.html" class="btn-secondary">Find support</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="view-dashboard" class="card p-6 mt-6">
+          <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+            <div>
+              <h2 class="heading text-3xl">Week <span id="week-number">—</span></h2>
+              <p class="muted mt-1">Day <span id="day-number">—</span> of this week • Due <span id="due-date">—</span></p>
+            </div>
+            <div class="pill" id="baby-size">Baby size: —</div>
+          </div>
+          <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="p-4 rounded-xl ring-1 ring-black/5 bg-white">
+              <h3 class="heading text-xl">Today's guidance</h3>
+              <p id="today-guidance" class="mt-2 text-[#4b5563]"></p>
+            </div>
+            <div class="p-4 rounded-xl ring-1 ring-black/5 bg-white">
+              <h3 class="heading text-xl">Next up</h3>
+              <ul id="next-up" class="mt-2 space-y-2 text-[#4b5563]"></ul>
+            </div>
+            <div id="supplement-reminder" class="p-4 rounded-xl ring-1 ring-black/5 bg-white hidden">
+              <h3 class="heading text-xl">Daily supplements</h3>
+              <p class="mt-2 text-[#4b5563]">A gentle reminder to take your prenatal vitamins today.</p>
+              <div class="mt-3 flex items-center gap-2">
+                <button id="btn-supplement-taken" class="btn-primary">I took them</button>
+              </div>
+            </div>
+            <div id="partner-help" class="p-4 rounded-xl ring-1 ring-black/5 bg-white hidden">
+              <h3 class="heading text-xl">How to help today</h3>
+              <div id="partner-help-body" class="mt-2 text-[#4b5563]"></div>
+            </div>
+          </div>
+        </div>
+
+        <div id="view-notes" class="card p-6 mt-6 hidden">
+          <h2 class="heading text-2xl">Daily note</h2>
+          <form id="note-form" class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label class="label">Date</label>
+              <input type="date" id="note-date" class="input" />
+            </div>
+            <div>
+              <label class="label">Mood</label>
+              <input type="range" min="1" max="5" value="3" id="note-mood" class="w-full" />
+              <div class="flex justify-between text-xs text-[#6b7280] mt-1">
+                <span>Low</span><span>High</span>
+              </div>
+            </div>
+            <div class="md:col-span-2">
+              <label class="label">Your note</label>
+              <textarea id="note-text" class="input min-h-[120px]" placeholder="How are you feeling today?"></textarea>
+            </div>
+            <div class="md:col-span-2 flex flex-wrap items-center gap-3">
+              <button type="button" id="btn-start-voice" class="btn-secondary">Voice check-in</button>
+              <button type="button" id="btn-stop-voice" class="btn-secondary hidden">Stop</button>
+              <span id="voice-status" class="text-sm muted">Not recording</span>
+            </div>
+            <div class="md:col-span-2">
+              <button class="btn-primary">Save note</button>
+            </div>
+          </form>
+          <div class="mt-8">
+            <h3 class="heading text-xl">Your timeline</h3>
+            <div id="notes-list" class="mt-3 space-y-3"></div>
+          </div>
+        </div>
+
+        <div id="view-reading" class="card p-6 mt-6 hidden">
+          <h2 class="heading text-2xl">Daily read</h2>
+          <article id="reading-article" class="mt-3 space-y-3 text-[#374151]"></article>
+        </div>
+
+        <div id="view-weekly" class="card p-6 mt-6 hidden">
+          <h2 class="heading text-2xl">Weekly check-in</h2>
+          <article id="weekly-article" class="mt-3 space-y-3 text-[#374151]"></article>
+        </div>
+
+        <div id="view-checklist" class="card p-6 mt-6 hidden">
+          <div class="flex items-center justify-between gap-3 flex-wrap">
+            <h2 class="heading text-2xl">Preparation checklist</h2>
+            <button id="btn-add-task" class="btn-secondary">Add task</button>
+          </div>
+          <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4" id="checklist-groups"></div>
+        </div>
+
+        <div id="view-baby" class="card p-6 mt-6 hidden">
+          <h2 class="heading text-2xl">Baby log</h2>
+          <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="p-4 rounded-xl ring-1 ring-black/5 bg-white">
+              <h3 class="heading text-xl">Sleep</h3>
+              <div class="mt-2 grid grid-cols-1 gap-2">
+                <div>
+                  <label class="label">From</label>
+                  <input type="datetime-local" id="sleep-start" class="input" />
+                </div>
+                <div>
+                  <label class="label">To</label>
+                  <input type="datetime-local" id="sleep-end" class="input" />
+                </div>
+                <div>
+                  <button id="btn-add-sleep" class="btn-primary">Add sleep</button>
+                </div>
+              </div>
+              <div id="baby-sleep-list" class="mt-3 space-y-2"></div>
+            </div>
+            <div class="p-4 rounded-xl ring-1 ring-black/5 bg-white">
+              <h3 class="heading text-xl">Feed</h3>
+              <div class="mt-2 grid grid-cols-1 gap-2">
+                <div>
+                  <label class="label">Fed at</label>
+                  <input type="datetime-local" id="feed-time" class="input" />
+                </div>
+                <div>
+                  <button id="btn-add-feed" class="btn-primary">Log feed</button>
+                </div>
+              </div>
+              <div id="baby-feed-list" class="mt-3 space-y-2"></div>
+            </div>
+            <div class="p-4 rounded-xl ring-1 ring-black/5 bg-white md:col-span-2">
+              <h3 class="heading text-xl">Mum today</h3>
+              <div class="mt-2 grid grid-cols-1 md:grid-cols-2 gap-3">
+                <div>
+                  <label class="label">Date</label>
+                  <input type="date" id="pp-date" class="input" />
+                </div>
+                <div>
+                  <label class="label">Mood</label>
+                  <input type="range" min="1" max="5" value="3" id="pp-mood" class="w-full" />
+                  <div class="flex justify-between text-xs text-[#6b7280] mt-1">
+                    <span>Low</span><span>High</span>
+                  </div>
+                </div>
+                <div class="md:col-span-2">
+                  <label class="label">Concerns</label>
+                  <textarea id="pp-concern" class="input min-h-[100px]" placeholder="Anything on your mind today?"></textarea>
+                </div>
+                <div class="md:col-span-2">
+                  <button id="btn-add-mood" class="btn-primary">Save</button>
+                </div>
+              </div>
+              <div id="baby-mood-list" class="mt-3 space-y-2"></div>
+            </div>
+          </div>
+        </div>
+        <div id="view-wishlist" class="card p-6 mt-6 hidden">
+          <div class="flex items-center justify-between gap-3 flex-wrap">
+            <h2 class="heading text-2xl">Wishlist</h2>
+            <div class="flex items-center gap-2">
+              <button id="btn-share-wishlist" class="btn-secondary">Share wishlist</button>
+              <button id="btn-add-wishlist" class="btn-primary">Add item</button>
+            </div>
+          </div>
+          <div id="wishlist-list" class="mt-4 space-y-3"></div>
+          <p id="wishlist-empty" class="muted mt-2 hidden">No items yet. Add your first wish.</p>
+        </div>
+        <div id="view-chat" class="card p-6 mt-6 hidden">
+          <div class="flex items-center justify-between gap-3">
+            <h2 class="heading text-2xl">Ask your doula</h2>
+            <button id="btn-ai-settings" class="btn-secondary">AI settings</button>
+          </div>
+          <div id="chat-thread" class="mt-4 h-[360px] overflow-y-auto pr-1 space-y-3"></div>
+          <form id="chat-form" class="mt-3 flex items-center gap-2">
+            <input id="chat-input" class="input flex-1" placeholder="Ask a question..." />
+            <button type="submit" class="btn-primary">Send</button>
+          </form>
+          <p class="text-xs text-[#6b7280] mt-2">Tips: Ask about symptoms, prenatal vitamins, trimester timelines, or hospital bag prep.</p>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <!-- Settings Modal -->
+  <div id="modal-settings" class="fixed inset-0 bg-black/30 hidden items-center justify-center p-4 z-50">
+    <div class="card w-full max-w-lg p-6 relative">
+      <button class="absolute top-3 right-3 btn-secondary" id="close-settings">Close</button>
+      <h3 class="heading text-2xl">Settings</h3>
+      <div class="mt-4 space-y-4">
+        <div>
+          <label class="label">Due date</label>
+          <input type="date" id="due-input" class="input" />
+        </div>
+        <div>
+          <label class="label">Baby’s birthday</label>
+          <input type="date" id="baby-dob" class="input" />
+        <div>
+        </div>
+        <div>
+          <label class="label">Your role</label>
+          <select id="role-select" class="input">
+            <option value="mom">Mum</option>
+            <option value="partner">Partner</option>
+          </select>
+        </div>
+      </div>
+      <div class="mt-5 flex items-center gap-3 justify-end">
+        <button id="save-settings" class="btn-primary">Save</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- AI Settings Modal -->
+  <div id="modal-ai" class="fixed inset-0 bg-black/30 hidden items-center justify-center p-4 z-50">
+    <div class="card w-full max-w-lg p-6 relative">
+      <button class="absolute top-3 right-3 btn-secondary" id="close-ai">Close</button>
+      <h3 class="heading text-2xl">AI settings</h3>
+      <div class="mt-4 space-y-4">
+        <div>
+          <label class="label">Mode</label>
+          <select id="ai-mode" class="input">
+            <option value="local">Local guide</option>
+            <option value="openai">OpenAI (bring your own key)</option>
+          </select>
+        </div>
+        <div id="openai-key-wrap" class="hidden">
+          <label class="label">OpenAI API key</label>
+          <input id="openai-key" class="input" placeholder="sk-..." />
+          <p class="text-xs text-[#6b7280] mt-1">Stored locally on your device. Never shared.</p>
+        </div>
+      </div>
+      <div class="mt-5 flex items-center gap-3 justify-end">
+        <button id="save-ai" class="btn-primary">Save</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add Task Modal -->
+  <div id="modal-task" class="fixed inset-0 bg-black/30 hidden items-center justify-center p-4 z-50">
+    <div class="card w-full max-w-lg p-6 relative">
+      <button class="absolute top-3 right-3 btn-secondary" id="close-task">Close</button>
+      <h3 class="heading text-2xl">Add task</h3>
+      <div class="mt-4 space-y-4">
+        <div>
+          <label class="label">Task</label>
+          <input id="task-title" class="input" placeholder="e.g., Start nursery mood board" />
+        </div>
+        <div>
+          <label class="label">Recommended start week</label>
+          <input type="number" id="task-week" class="input" min="4" max="42" value="20" />
+        </div>
+      </div>
+      <div class="mt-5 flex items-center gap-3 justify-end">
+        <button id="save-task" class="btn-primary">Save</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add Wishlist Modal -->
+  <div id="modal-wishlist" class="fixed inset-0 bg-black/30 hidden items-center justify-center p-4 z-50">
+    <div class="card w-full max-w-lg p-6 relative">
+      <button class="absolute top-3 right-3 btn-secondary" id="close-wishlist">Close</button>
+      <h3 class="heading text-2xl">Add wishlist item</h3>
+      <div class="mt-4 space-y-4">
+        <div>
+          <label class="label">Item</label>
+          <input id="wish-title" class="input" placeholder="e.g., Cozy swaddle or prenatal massage voucher" />
+        </div>
+        <div>
+          <label class="label">Link (optional)</label>
+          <input id="wish-link" class="input" placeholder="https://..." />
+        </div>
+        <div>
+          <label class="label">Note (optional)</label>
+          <textarea id="wish-note" class="input min-h-[90px]" placeholder="Color, size, or why this would help"></textarea>
+        </div>
+        <div>
+          <label class="label">Price (optional)</label>
+          <input id="wish-price" class="input" placeholder="$" />
+        </div>
+      </div>
+      <div class="mt-5 flex items-center gap-3 justify-end">
+        <button id="save-wishlist-item" class="btn-primary">Save</button>
+      </div>
+    </div>
+  </div>
+  <div id="toast" role="status" aria-live="polite" class="fixed bottom-6 left-1/2 -translate-x-1/2 bg-[#1ea896] text-white px-4 py-2 rounded-full shadow-xl hidden z-50">Settings saved</div>
+  <footer class="max-w-7xl mx-auto px-4 sm:px-6 pb-12 pt-4 text-sm text-[#6b7280]">
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="scripts/helpers.js"></script>
+  <script src="scripts/ui.js"></script>
+  <script src="scripts/main.js"></script>
+</body>
+</html>

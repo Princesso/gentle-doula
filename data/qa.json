@@ -1,0 +1,82 @@
+{
+  "qa": [
+    { "q": "When will I feel baby kicks?", "a": "Most first-time mums notice flutters around 18–22 weeks. If it’s earlier in pregnancy, not feeling movement yet can be normal. If you’re later in pregnancy and notice reduced movement, contact your clinician.", "tags": ["kick","movement","flutters"], "stage": "second" },
+    { "q": "I’m not feeling baby move today. What should I do?", "a": "First, pause and tune in—drink cold water, lie on your left side, and focus for an hour. If you still feel reduced or no movements, contact your clinician or triage right away.", "tags": ["reduced movement","no movement","kick","count"], "stage": "third" },
+
+    { "q": "How do I count baby kicks?", "a": "Pick a time when baby is usually active and lie on your side. Time how long it takes to feel 10 movements. Many providers expect 10 kicks within 2 hours. If the count is lower than usual or take longer, contact your clinician.", "tags": ["kick count","count kicks","movement"], "stage": "third" },
+    { "q": "What if movements feel different?", "a": "Patterns change as baby grows, but a clear decrease needs attention. Trust your instincts—if something feels off, call your clinician.", "tags": ["movement","pattern","kick"], "stage": "third" },
+
+    { "q": "Is spotting normal in pregnancy?", "a": "Light spotting can happen, especially after intercourse or exams. Heavy bleeding, clots, or strong cramps are red flags—seek medical care promptly.", "tags": ["bleed","spotting","cramp"], "stage": "any" },
+    { "q": "I’m having cramps—should I worry?", "a": "Mild, occasional cramps can be normal as your uterus grows. Rest, hydration, and a warm (not hot) compress can help. If cramps are severe, persistent, or paired with bleeding, contact your clinician.", "tags": ["cramp","pain"], "stage": "any" },
+
+    { "q": "I feel very nauseous—what helps?", "a": "Try small frequent meals, ginger, and vitamin B6. Keep crackers by the bed and sip fluids often. If you cannot keep fluids down or feel very weak, contact your clinician.", "tags": ["nausea","vomit","morning sickness"], "stage": "first" },
+    { "q": "What can I do for headaches?", "a": "Hydration, rest, and a small snack can help. Sudden severe headache, vision changes, or swelling can be warning signs—call your clinician to rule out preeclampsia.", "tags": ["headache","vision","preeclampsia"], "stage": "any" },
+    { "q": "How do I manage heartburn?", "a": "Eat smaller portions, avoid lying down right after eating, and try propping your upper body at night. Discuss safe antacids with your clinician if needed.", "tags": ["heartburn","reflux"], "stage": "second" },
+    { "q": "Constipation relief in pregnancy?", "a": "Increase water, fiber-rich foods, and gentle movement. Prunes can help. Discuss safe stool softeners with your clinician if needed.", "tags": ["constipation","bowel"], "stage": "any" },
+    { "q": "Back or pelvic pain—what helps?", "a": "Use cushions for support, practice side-lying rest with a pillow between knees, wear supportive shoes, and consider a prenatal support band. If pain is severe or persistent, call your clinician.", "tags": ["back pain","pelvic pain","support band"], "stage": "second" },
+
+    { "q": "Which sleep positions are safest?", "a": "Side-lying sleep, especially on the left, can support circulation. Use pillows to support your bump and between your knees. Find a comfortable tilt if lying fully on your side is tricky.", "tags": ["sleep","position","left side"], "stage": "any" },
+    { "q": "I can’t sleep—any tips?", "a": "Try a gentle wind-down: dim lights, no screens 30–60 minutes before bed, light stretching, and hydration. A brief daytime walk can also improve sleep quality.", "tags": ["sleep","insomnia","tired"], "stage": "any" },
+
+    { "q": "What should a prenatal vitamin include?", "a": "Common ingredients are folate/folic acid, iron, iodine, and vitamin D. Some add DHA. Your clinician can tailor doses based on your needs.", "tags": ["vitamin","prenatal","folate","iron","iodine","vitamin d"], "stage": "any" },
+    { "q": "How much caffeine is okay?", "a": "Many guidelines suggest limiting to about 200 mg per day (roughly one 12 oz coffee). Check with your clinician for personal advice.", "tags": ["caffeine","coffee","tea"], "stage": "any" },
+    { "q": "What foods should I avoid?", "a": "Avoid high-mercury fish (like shark, swordfish), unpasteurized dairy, and undercooked meats. Heat deli meats until steaming. Wash produce well and practice safe food handling.", "tags": ["food safety","mercury","cheese","deli"], "stage": "any" },
+
+    { "q": "Is exercise safe in pregnancy?", "a": "If your pregnancy is uncomplicated, walking, swimming, and prenatal yoga are usually fine. Avoid contact sports, high fall risk activities, and overheating. Ask your clinician about your specific plan.", "tags": ["exercise","workout","yoga","walk"], "stage": "any" },
+    { "q": "Can I have sex during pregnancy?", "a": "For most uncomplicated pregnancies, sex is safe. If you have bleeding, placenta previa, or preterm labor risk, your clinician may advise limits. Always check if unsure.", "tags": ["sex","intercourse","intimacy"], "stage": "any" },
+
+    { "q": "Which vaccines are recommended?", "a": "Flu vaccine during flu season and Tdap (whooping cough) typically in the third trimester are commonly recommended to protect you and baby. Confirm timing with your clinician.", "tags": ["vaccine","flu","tdap"], "stage": "any" },
+
+    { "q": "When are key scans and tests?", "a": "First-trimester options may include dating or nuchal translucency scans; second trimester often includes an anatomy scan around 18–22 weeks; third trimester may include growth scans if needed. Glucose screening usually occurs around 24–28 weeks.", "tags": ["scan","ultrasound","anatomy","screening","glucose"], "stage": "any" },
+    { "q": "What is gestational diabetes screening?", "a": "A glucose test typically between 24–28 weeks checks how your body handles sugar. If diagnosed, diet, activity, and monitoring help keep levels stable under clinician guidance.", "tags": ["diabetes","glucose","gd"], "stage": "second" },
+
+    { "q": "What are signs of preeclampsia?", "a": "Severe headache, vision changes (like spots or blurring), upper abdominal pain, swelling of face/hands, or high blood pressure can be signs. Seek care promptly if these appear.", "tags": ["preeclampsia","vision","swelling","blood pressure"], "stage": "any" },
+
+    { "q": "What are Braxton Hicks contractions?", "a": "They are practice contractions—often irregular, mild, and ease with rest or hydration. True labor contractions grow stronger, closer together, and do not stop with rest.", "tags": ["braxton hicks","contractions","labor"], "stage": "third" },
+    { "q": "When should I go to the hospital?", "a": "Follow your clinician’s guidance (many use the 5-1-1 rule: contractions every 5 minutes, lasting 1 minute, for 1 hour). Go sooner with bleeding, your waters breaking, or intense pain.", "tags": ["labor","5-1-1","water broke","contractions"], "stage": "third" },
+    { "q": "My water broke—now what?", "a": "Note the time, color, and odor of the fluid and contact your clinician. Head in as directed, especially if contractions have started or if the fluid looks green or brown.", "tags": ["water broke","waters","rupture","labor"], "stage": "third" },
+
+    { "q": "How can my partner support me?", "a": "Small, steady support helps: share chores, check in about feelings, attend appointments if possible, and learn basic comfort measures (like massage, hydration reminders, and positioning).", "tags": ["partner","support","husband","spouse"], "stage": "any" },
+    { "q": "How do I communicate what I need to my partner?", "a": "Try brief updates about how you feel, suggest a small action they can do now (e.g., ‘Could you bring water?’), and plan weekly check-ins about upcoming appointments and tasks.", "tags": ["partner","communication","support"], "stage": "any" },
+
+    { "q": "Is it safe to travel by plane?", "a": "Many people fly in the second trimester when they feel best. Walk and stretch regularly, hydrate, and wear a seatbelt low across the hips. Check airline policies and your clinician’s advice before booking.", "tags": ["travel","flight","plane"], "stage": "second" },
+    { "q": "Any tips for long car trips?", "a": "Plan regular breaks to stretch, hydrate, and use restrooms. Wear the seatbelt with the lap belt low under the bump and the shoulder belt between the breasts.", "tags": ["travel","car","drive"], "stage": "any" },
+
+    { "q": "What’s normal pregnancy weight gain?", "a": "Healthy ranges vary by your starting point. Aim for steady, gentle gain guided by your clinician. Focus on balanced meals, hydration, and regular light activity.", "tags": ["weight","gain","nutrition"], "stage": "any" },
+    { "q": "How much water should I drink?", "a": "A common goal is about 8–10 cups per day, more with heat or exercise. Sip regularly and add electrolytes if needed—your urine should be pale yellow.", "tags": ["hydration","water","drink"], "stage": "any" },
+
+    { "q": "Is it normal to have more vaginal discharge?", "a": "An increase in thin, milky discharge can be normal. If discharge is green, foul-smelling, itchy, or accompanied by pain, contact your clinician to rule out infection.", "tags": ["discharge","infection","uti"], "stage": "any" },
+    { "q": "Could I have a UTI?", "a": "Burning with urination, urgency, or lower abdominal discomfort can be signs. Stay hydrated and contact your clinician—UTIs are common and usually easy to treat in pregnancy.", "tags": ["uti","urine","pee"], "stage": "any" },
+
+    { "q": "What are key prenatal appointments?", "a": "Early visits confirm pregnancy and discuss labs; the anatomy scan is around 18–22 weeks; glucose screening typically at 24–28 weeks; later visits monitor growth, blood pressure, and wellbeing.", "tags": ["appointments","schedule","scan","glucose"], "stage": "any" },
+
+    { "q": "Any tips for swelling in ankles and feet?", "a": "Elevate your feet when you can, hydrate, and use comfy shoes. Sudden swelling of face/hands or swelling with headache or vision changes needs prompt clinician guidance.", "tags": ["swelling","edema","preeclampsia"], "stage": "third" },
+
+    { "q": "Shortness of breath—when is it concerning?", "a": "A mild sense of breathlessness can be normal as baby grows. If it is severe, sudden, or paired with chest pain, dizziness, or blue lips, seek urgent care.", "tags": ["shortness of breath","breathing","chest pain"], "stage": "third" },
+
+    { "q": "Can I keep up strength safely?", "a": "Light strength work with good form, slow pace, and breathing can be okay if cleared by your clinician. Avoid breath-holding, heavy straining, and lying flat on your back later in pregnancy.", "tags": ["exercise","strength","weights"], "stage": "second" },
+
+    { "q": "What helps with anemia in pregnancy?", "a": "Your clinician may recommend iron supplements and iron-rich foods (like beans, leafy greens, and meats), paired with vitamin C to aid absorption. Avoid taking iron with calcium.", "tags": ["anemia","iron","vitamin c"], "stage": "any" },
+
+    { "q": "How do I prepare a birth preferences note?", "a": "Keep it simple and flexible: key comfort measures, who you want present, immediate skin-to-skin, feeding preferences, and any cultural needs. Share it with your clinician ahead of time.", "tags": ["birth plan","preferences","labor"], "stage": "third" },
+
+    { "q": "What’s the difference between true labor and false labor?", "a": "True labor contractions get stronger, longer, and closer together and don’t stop with rest or hydration. Braxton Hicks are often irregular and ease with rest and fluids.", "tags": ["labor","braxton hicks","contractions"], "stage": "third" },
+
+    { "q": "How can I support my mental wellbeing?", "a": "Check in with yourself daily, journal briefly, and reach out to supportive people. If you feel persistently low, anxious, or overwhelmed, talk to your clinician—support is available.", "tags": ["mental health","anxiety","depression","support"], "stage": "any" },
+    { "q": "What’s the difference between baby blues and depression?", "a": "Baby blues are common in the first 2 weeks postpartum and often improve. If low mood, anxiety, or hopelessness persist or worsen, that may be perinatal depression—please seek professional support.", "tags": ["postpartum","depression","baby blues"], "stage": "any" },
+
+    { "q": "Should my partner come to appointments?", "a": "If possible, yes—shared understanding helps. They can help remember questions, offer support, and learn comfort strategies for labor.", "tags": ["partner","appointments","support"], "stage": "any" },
+
+    { "q": "Are antenatal classes helpful?", "a": "Many parents find them useful to learn about labor signs, comfort measures, feeding, and newborn care, and to meet other families.", "tags": ["antenatal","class","education"], "stage": "any" },
+
+    { "q": "Any tips for nausea at night?", "a": "Eat small snacks through the day, keep crackers by the bed, and sip ginger tea. B6 may help—ask your clinician about safe dosing.", "tags": ["nausea","vomit","sleep"], "stage": "first" },
+
+    { "q": "Can I eat fish?", "a": "Yes—choose low-mercury options like salmon, sardines, and trout 2–3 times a week for protein and DHA. Avoid high-mercury fish like shark and swordfish.", "tags": ["fish","mercury","nutrition"], "stage": "any" },
+
+    { "q": "What helps with leg cramps?", "a": "Gentle calf stretches before bed, hydration, and magnesium-rich foods can help. If cramps are severe or frequent, ask your clinician for guidance.", "tags": ["cramp","legs","magnesium"], "stage": "second" },
+
+    { "q": "How can I reduce swelling while traveling?", "a": "Wear comfortable shoes, take walking breaks, flex your ankles, and hydrate. Consider compression socks if your clinician approves.", "tags": ["travel","swelling","compression"], "stage": "second" },
+
+    { "q": "What if I’m sick with a cold or flu?", "a": "Rest, hydrate, and use a humidifier. Some medications are safe—ask your clinician before taking anything. Seek care for high fever, breathing difficulty, or if you feel very unwell.", "tags": ["illness","flu","cold","medication"], "stage": "any" }
+  ]
+}

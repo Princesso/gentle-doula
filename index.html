@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gentle Doula — Your Calm Pregnancy Companion</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/main.css">
+  <script src="https://cdn.jsdelivr.net/npm/tailwindcss-cdn@3.4.10/tailwindcss.js"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <meta name="description" content="A calming, supportive pregnancy doula app with daily notes, voice mood insights, partner invites, week-by-week guidance, shopping timelines, and AI chat.">
+  <style type="text/tailwindcss" data-teda="tailwind-apply">
+    @layer components {
+      .btn-primary { @apply bg-[#1ea896] text-white font-medium rounded-full px-6 py-3 shadow-lg hover:shadow-xl hover:bg-[#179786] focus:outline-none focus:ring-4 focus:ring-[#87e6da]/60 transition-all duration-300 whitespace-nowrap; }
+      .btn-secondary { @apply bg-white text-[#1f2937] border border-[#e7ecef] rounded-full px-5 py-2.5 shadow-sm hover:shadow-md hover:bg-[#f6f7f8] focus:outline-none focus:ring-4 focus:ring-[#c7d2d9]/50 transition-all duration-300 whitespace-nowrap; }
+      .pill { @apply inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-medium ring-1 ring-black/5 bg-white shadow-sm; }
+      .card { @apply bg-white rounded-2xl shadow-xl ring-1 ring-black/5; }
+      .muted { @apply text-[#596579]; }
+      .heading { @apply font-['Oswald'] tracking-tight; }
+      .body { @apply font-['Inter']; }
+      .link-cta { @apply text-[#1ea896] hover:text-[#179786] underline underline-offset-4 decoration-[#a6f1e7] hover:decoration-[#66d5c9] transition-all duration-300; }
+    }
+  </style>
+</head>
+<body class="body bg-[#fbfaf8] text-[#1f2937] antialiased">
+  <header class="relative">
+    <nav class="max-w-7xl mx-auto px-6 pt-6 flex items-center justify-between z-20 relative">
+      <a href="#top" class="flex items-center gap-3" aria-label="Gentle Doula home">
+        <img src="assets/logo.svg" alt="Gentle Doula logo" class="w-9 h-9 drop-shadow" />
+        <span class="heading text-xl">Gentle Doula</span>
+      </a>
+      <div class="flex items-center gap-3">
+        <a href="app.html" class="btn-primary">Open the app</a>
+      </div>
+    </nav>
+
+    <section class="relative overflow-hidden">
+      <div class="absolute inset-0 -z-10 pointer-events-none">
+        <img src="assets/hero-motif.svg" alt="" class="absolute -top-20 -right-10 w-[28rem] opacity-50" />
+        <div class="absolute -bottom-24 -left-16 w-[30rem] h-[30rem] rounded-full bg-[#a6f1e7] opacity-30 blur-3xl"></div>
+      </div>
+
+      <div class="max-w-7xl mx-auto px-6 pt-10 pb-16">
+        <div class="relative">
+          <p class="pill">
+            <span class="w-2.5 h-2.5 rounded-full bg-[#ffb8b1]"></span>
+            Gentle guidance for every day
+          </p>
+
+          <h1 class="heading text-[10vw] sm:text-[6rem] leading-[0.9] mt-6 font-semibold">
+            Your calm <span class="text-[#1ea896]">doula</span> for pregnancy
+          </h1>
+
+          <div class="mt-6 max-w-3xl text-lg text-[#374151]">
+            <p>Daily notes, soft reminders, partner support, and week-by-week insights. A gentle space to feel seen, supported, and informed.</p>
+          </div>
+
+          <div class="mt-10 flex items-center gap-4 flex-wrap">
+            <a href="app.html" class="btn-primary">Start my journey</a>
+            <a href="#learn" class="btn-secondary">How it works</a>
+          </div>
+
+          <figure class="mt-12 relative">
+            <blockquote class="card p-6 sm:p-8 relative z-10 max-w-2xl">
+              <p class="heading text-3xl sm:text-4xl leading-tight">
+                "I felt calmer, more organized, and my partner knew how to help."
+              </p>
+              <figcaption class="mt-4 muted">— a soon-to-be mum, week 24</figcaption>
+            </blockquote>
+            <img src="assets/pebble.svg" alt="soft pebble" class="absolute -right-10 -top-8 w-28 opacity-70 rotate-6" />
+          </figure>
+        </div>
+      </div>
+    </section>
+  </header>
+
+  <main id="learn" class="relative z-10">
+    <section class="max-w-7xl mx-auto px-6 py-12 sm:py-16">
+      <div class="mb-10">
+        <h2 class="heading text-4xl sm:text-5xl">A companion that listens</h2>
+        <p class="mt-3 text-[#4b5563] max-w-2xl">Make daily notes, speak your feelings, and get thoughtful guidance. Invite your partner or a trusted friend to be in the loop.</p>
+      </div>
+
+      <div class="space-y-10">
+        <div class="card p-6 sm:p-8 relative overflow-hidden">
+          <div class="absolute right-6 top-6 pill">Daily journal + mood</div>
+          <h3 class="heading text-2xl">Gentle check-ins</h3>
+          <p class="mt-2 text-[#4b5563]">Track mood, symptoms, and little milestones. Soft nudges keep you steady, not stressed.</p>
+          <div class="mt-6">
+            <a href="app.html" class="link-cta">Open the journal</a>
+          </div>
+        </div>
+
+        <div class="card p-6 sm:p-8">
+          <h3 class="heading text-2xl">Week-by-week guidance</h3>
+          <p class="mt-2 text-[#4b5563]">Clear, compassionate explanations of what your body may be doing today, plus what to prepare next.</p>
+          <ul class="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <li class="p-4 rounded-xl ring-1 ring-black/5 bg-white">Daily reads tailored to your due date</li>
+            <li class="p-4 rounded-xl ring-1 ring-black/5 bg-white">Smart shopping and nursery timeline</li>
+            <li class="p-4 rounded-xl ring-1 ring-black/5 bg-white">Prenatal mental well-being support</li>
+          </ul>
+        </div>
+
+        <div class="card p-6 sm:p-8">
+          <h3 class="heading text-2xl">Partner-friendly</h3>
+          <p class="mt-2 text-[#4b5563]">Invite someone you trust to follow along. Share updates, notes, and important checklists together.</p>
+          <div class="mt-6 flex items-center gap-4 flex-wrap">
+            <a href="app.html" class="btn-primary">Create my invite</a>
+            <a href="help.html" class="btn-secondary">Support resources</a>
+          </div>
+        </div>
+
+        <div class="card p-6 sm:p-8">
+          <h3 class="heading text-2xl">Ask anything, anytime</h3>
+          <p class="mt-2 text-[#4b5563]">Built-in chat with an assistant trained on week-by-week context. Connect your own API key for enhanced answers, or use the local guide offline.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="max-w-7xl mx-auto px-6 py-14">
+      <div class="rounded-3xl p-10 bg-[#f7fdfc] ring-1 ring-[#d9f4ef] shadow-xl">
+        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+          <div>
+            <h3 class="heading text-3xl">Ready to feel supported?</h3>
+            <p class="mt-2 text-[#4b5563]">Set your due date, start journaling, and invite your partner in minutes.</p>
+          </div>
+          <a href="app.html" class="btn-primary">Open the app</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="max-w-7xl mx-auto px-6 pb-16 pt-6 text-sm text-[#6b7280]">
+    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+      <div class="flex items-center gap-4">
+        <a href="help.html" class="link-cta">Help</a>
+        <a href="app.html" class="link-cta">App</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
